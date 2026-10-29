@@ -1,5 +1,7 @@
 import os
+import shutil
 import sqlite3
+import tempfile
 from datetime import datetime
 
 from flask import (
@@ -25,14 +27,14 @@ from ai_engine import (
 
 app = Flask(__name__)
 
-app.secret_key = "projectiq-secret-key"
+app.secret_key = os.environ.get("SECRET_KEY", "projectiq-secret-key")
 
 
 BASE_DIR = os.path.dirname(
     os.path.abspath(__file__)
 )
 
-DATABASE_PATH = os.path.join(
+DATABASE_PATH = os.environ.get("DATABASE_PATH") or os.path.join(
     BASE_DIR,
     "projectiq.db"
 )
@@ -51,6 +53,22 @@ DATASET_PATH = os.path.join(
 # ============================================================
 # DATABASE
 # ============================================================
+
+def prepare_database_file():
+
+    # On Render the DB lives on a persistent disk; seed it once from
+    # the bundled projectiq.db so existing records are not lost.
+    os.makedirs(os.path.dirname(DATABASE_PATH), exist_ok=True)
+
+    bundled = os.path.join(BASE_DIR, "projectiq.db")
+
+    if (
+        not os.path.exists(DATABASE_PATH)
+        and os.path.abspath(bundled) != os.path.abspath(DATABASE_PATH)
+        and os.path.exists(bundled)
+    ):
+        shutil.copy(bundled, DATABASE_PATH)
+
 
 def get_db_connection():
 
@@ -108,6 +126,7 @@ def init_db():
     connection.close()
 
 # Auto-initialize database schema on load
+prepare_database_file()
 init_db()
 
 
@@ -707,7 +726,7 @@ def download_report(project_id):
 
 
     report_path = os.path.join(
-        BASE_DIR,
+        tempfile.gettempdir(),
         f"project_report_{project_id}.txt"
     )
 
@@ -869,5 +888,7 @@ if __name__ == "__main__":
     )
 
     app.run(
-        debug=True
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000)),
+        debug=os.environ.get("FLASK_DEBUG", "1") == "1"
     )

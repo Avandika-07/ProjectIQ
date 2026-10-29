@@ -20,7 +20,7 @@ DATASET_PATH = os.path.join(
     "project.csv"
 )
 
-DATABASE_PATH = os.path.join(
+DATABASE_PATH = os.environ.get("DATABASE_PATH") or os.path.join(
     BASE_DIR,
     "projectiq.db"
 )

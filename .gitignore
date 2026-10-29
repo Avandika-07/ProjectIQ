@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+.env
+project_report_*.txt

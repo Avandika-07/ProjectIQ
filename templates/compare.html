@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ProjectIQ - Compare Projects</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        nav {
+            background: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #6b7280;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .project-card h2 {
+            margin-bottom: 15px;
+        }
+
+        .domain {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 7px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .table-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        th {
+            background: #f3f4f6;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .winner {
+            font-weight: bold;
+            color: #16a34a;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 22px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 700px) {
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        ProjectIQ
+    </div>
+
+    <div>
+
+        <a href="/">Home</a>
+
+        <a href="/evaluate">Evaluate</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/history">History</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+
+    <div class="header">
+
+        <h1>Project Comparison</h1>
+
+        <p>
+            Compare AI evaluation scores between two projects
+        </p>
+
+    </div>
+
+
+    {% if project1 is defined and project2 is defined and project1 and project2 %}
+
+    <div class="projects">
+
+
+        <div class="project-card">
+
+            <h2>
+                {{ project1["title"] }}
+            </h2>
+
+            <span class="domain">
+                {{ project1["domain"] }}
+            </span>
+
+            <p>
+                {{ project1["description"] }}
+            </p>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h2>
+                {{ project2["title"] }}
+            </h2>
+
+            <span class="domain">
+                {{ project2["domain"] }}
+            </span>
+
+            <p>
+                {{ project2["description"] }}
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Evaluation Metric
+                </th>
+
+                <th>
+                    {{ project1["title"] }}
+                </th>
+
+                <th>
+                    {{ project2["title"] }}
+                </th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Uniqueness
+                </td>
+
+                <td
+                    class="
+                    {% if project1['uniqueness'] > project2['uniqueness'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project1["uniqueness"] }}%
+
+                </td>
+
+                <td
+                    class="
+                    {% if project2['uniqueness'] > project1['uniqueness'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project2["uniqueness"] }}%
+
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Innovation
+                </td>
+
+                <td
+                    class="
+                    {% if project1['innovation'] > project2['innovation'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project1["innovation"] }}%
+
+                </td>
+
+                <td
+                    class="
+                    {% if project2['innovation'] > project1['innovation'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project2["innovation"] }}%
+
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Feasibility
+                </td>
+
+                <td
+                    class="
+                    {% if project1['feasibility'] > project2['feasibility'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project1["feasibility"] }}%
+
+                </td>
+
+                <td
+                    class="
+                    {% if project2['feasibility'] > project1['feasibility'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project2["feasibility"] }}%
+
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Resume Value
+                </td>
+
+                <td
+                    class="
+                    {% if project1['resume'] > project2['resume'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project1["resume"] }}%
+
+                </td>
+
+                <td
+                    class="
+                    {% if project2['resume'] > project1['resume'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project2["resume"] }}%
+
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Overall Score
+                </td>
+
+                <td
+                    class="
+                    {% if project1['overall'] > project2['overall'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project1["overall"] }}/100
+
+                </td>
+
+                <td
+                    class="
+                    {% if project2['overall'] > project1['overall'] %}
+                    winner
+                    {% endif %}
+                    "
+                >
+
+                    {{ project2["overall"] }}/100
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <div style="text-align:center; background:white; padding:40px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.06);">
+        <p style="color:#6b7280;">Go to <a href="/history" style="color:#4f46e5;">History</a> and select exactly 2 projects to compare.</p>
+    </div>
+
+    {% endif %}
+
+
+    <a
+        href="/history"
+        class="back-button"
+    >
+        Back to History
+    </a>
+
+
+</div>
+
+
+</body>
+
+</html>
+

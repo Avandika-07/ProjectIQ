@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ProjectIQ | AI Project Evaluation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg,
+                    #eef2ff,
+                    #ffffff);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #4f46e5;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #6b7280;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 16px 30px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .hero-button:hover {
+            background: #3730a3;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* HOW IT WORKS */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+        }
+
+        .step p {
+            color: #6b7280;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* CTA */
+
+        .cta {
+            background: #111827;
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            margin: 50px 8%;
+            padding: 60px 20px;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #d1d5db;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 25px;
+            background: white;
+            color: #111827;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #6b7280;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            ProjectIQ
+        </div>
+
+        <div>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/evaluate">
+                Evaluate
+            </a>
+            <a href="/history">
+    History
+</a>
+            <a href="/dashboard">
+    Dashboard
+</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🤖 AI-POWERED PROJECT EVALUATION
+            </div>
+
+            <h1>
+                Build a Project
+                <span>That Stands Out.</span>
+            </h1>
+
+            <p>
+                Evaluate your final-year project idea using
+                AI-powered analysis of uniqueness, innovation,
+                feasibility and resume value.
+            </p>
+
+            <a href="/evaluate" class="hero-button">
+                Evaluate My Project →
+            </a>
+            
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FEATURES -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>
+                What ProjectIQ Analyzes
+            </h2>
+
+            <p>
+                Four important factors that determine the strength
+                of your project idea.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Uniqueness
+                </h3>
+
+                <p>
+                    Compare your idea with existing projects
+                    and discover how original it is.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    💡
+                </div>
+
+                <h3>
+                    Innovation
+                </h3>
+
+                <p>
+                    Identify advanced features that can make
+                    your project more innovative.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Feasibility
+                </h3>
+
+                <p>
+                    Understand whether your proposed
+                    technologies and idea are practical.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    📈
+                </div>
+
+                <h3>
+                    Resume Value
+                </h3>
+
+                <p>
+                    Estimate how valuable your project can
+                    be for your career and placements.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- HOW IT WORKS -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>
+                How ProjectIQ Works
+            </h2>
+
+            <p>
+                Evaluate your idea in three simple steps.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Enter Your Idea
+                </h3>
+
+                <p>
+                    Provide your project title, description,
+                    domain, target users and technologies.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    AI Analysis
+                </h3>
+
+                <p>
+                    ProjectIQ analyzes your idea against
+                    existing project data.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Get Your Score
+                </h3>
+
+                <p>
+                    Receive scores, similar projects and
+                    AI-generated improvement recommendations.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+        <h2>
+            Ready to Test Your Project Idea?
+        </h2>
+
+        <p>
+            Find out whether your final-year project
+            is unique, innovative and career-worthy.
+        </p>
+
+        <a href="/evaluate">
+            Start Evaluation →
+        </a>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 ProjectIQ | AI-Based Student Project Evaluation System
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

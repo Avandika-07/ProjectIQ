@@ -1,0 +1,191 @@
+/* Evaluation Page */
+
+.evaluation {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 70px 20px;
+}
+
+
+.evaluation-container {
+    width: 100%;
+
+    max-width: 700px;
+}
+
+
+.evaluation-container h1 {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+
+.form-description {
+    color: #64748b;
+
+    margin-bottom: 35px;
+
+    line-height: 1.6;
+}
+
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+label {
+    font-weight: bold;
+
+    margin-top: 12px;
+}
+
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #6366f1;
+}
+
+
+form button {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #6366f1;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+/* Result Page */
+
+.result-page {
+    min-height: calc(100vh - 75px);
+
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+
+.result-container {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.result-container h1 {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+.domain {
+    color: #64748b;
+
+    margin-bottom: 40px;
+}
+
+
+.overall {
+    padding: 30px;
+
+    margin-bottom: 35px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    background: white;
+}
+
+
+.overall p {
+    color: #64748b;
+
+    margin-bottom: 10px;
+}
+
+
+.overall h2 {
+    font-size: 55px;
+}
+
+
+.score-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 40px;
+}
+
+
+.score-card {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+}
+
+
+.score-card h3 {
+    margin-bottom: 15px;
+}
+
+
+.score-card p {
+    font-size: 35px;
+
+    font-weight: bold;
+}

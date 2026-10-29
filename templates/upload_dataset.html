@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectIQ - Upload Dataset</title>
+
+    <style>
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        nav {
+            background: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { color: white; font-size: 24px; font-weight: bold; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+
+        h1 { font-size: 32px; margin-bottom: 10px; }
+
+        .subtitle { color: #6b7280; margin-bottom: 30px; }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px dashed #d1d5db;
+            border-radius: 10px;
+            background: #f9fafb;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover { background: #4338ca; }
+
+        .flash {
+            padding: 14px 18px;
+            border-radius: 9px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .flash.success { background: #d1fae5; color: #065f46; }
+        .flash.error   { background: #fee2e2; color: #b91c1c; }
+
+        .note {
+            margin-top: 20px;
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
+            padding: 16px;
+            border-radius: 10px;
+            color: #3730a3;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">ProjectIQ</div>
+    <div>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/evaluate">Evaluate</a>
+        <a href="/history">History</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Upload Dataset</h1>
+        <p class="subtitle">Upload a CSV file to update the project comparison dataset.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form action="/upload-dataset" method="POST" enctype="multipart/form-data">
+
+            <label for="file">Select CSV File</label>
+
+            <input type="file" id="file" name="file" accept=".csv" required>
+
+            <button type="submit" class="btn">Upload Dataset</button>
+
+        </form>
+
+        <div class="note">
+            <strong>Required CSV columns:</strong> <code>title</code>, <code>description</code>, <code>domain</code><br><br>
+            The dataset is used to compare your project ideas against existing projects
+            and calculate uniqueness scores.
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

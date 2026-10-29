@@ -1,0 +1,66 @@
+title,description,domain
+AI Attendance System,Face recognition based automated attendance system for classrooms and colleges using computer vision and camera feed,Artificial Intelligence
+Smart Waste Management System,IoT enabled smart waste collection monitoring and route optimization using ultrasonic sensors,IoT
+Student College Chatbot,AI powered conversational chatbot for answering student queries admissions and campus FAQs,Artificial Intelligence
+Hospital Management System,Web based portal for managing patients doctor appointments medical records and billing,Web Development
+Library Management System,Web application for cataloging books tracking student issues returns and fine calculation,Web Development
+Fake News Detection,Machine learning NLP system for identifying and classifying false or misleading news articles,Machine Learning
+Crop and Plant Disease Detection,Deep learning computer vision system for detecting and classifying crop leaf diseases from images,Computer Vision
+Traffic Flow Prediction System,Machine learning framework for predicting urban traffic congestion and flow from sensor data,Machine Learning
+E-Commerce Shopping Platform,Full stack e-commerce web platform with product catalog cart checkout payment gateway and order tracking,Web Development
+AI Resume Analyzer and Parser,Natural language processing tool for parsing resumes matching candidate skills to job descriptions and ranking applicants,Artificial Intelligence
+Driver Drowsiness Detection System,Computer vision and OpenCV system detecting driver fatigue through eye blink tracking and facial landmarks,Computer Vision
+Smart Home Automation System,IoT and ESP32 based home automation system allowing remote appliance control via mobile app and voice commands,IoT
+Credit Card Fraud Detection,Machine learning anomaly detection framework for identifying fraudulent financial transactions in real time,Machine Learning
+Phishing Website Detection,Cybersecurity system using machine learning URL heuristics and domain analysis to identify malicious websites,Cybersecurity
+Blockchain Based Voting System,Decentralized and tamper proof electronic voting system using Ethereum smart contracts and cryptographic identity,Blockchain
+Skin Cancer Classification System,Deep learning convolutional neural network for classifying skin lesion images into benign or malignant categories,Computer Vision
+Smart Agriculture and Soil Monitoring,IoT sensor network monitoring soil moisture temperature humidity and automated drip irrigation,IoT
+Stock Market Trend Prediction,Time series forecasting system using LSTM and recurrent neural networks for financial market prediction,Machine Learning
+Online Examination and Proctoring System,Web portal with automated AI proctoring face tracking and tab switch detection for remote exams,Web Development
+Personalized Movie and Music Recommendation System,Collaborative filtering and content based recommendation engine for personalized media suggestions,Machine Learning
+Sign Language Recognition System,Computer vision and deep learning model translating hand gestures into text and speech in real time,Computer Vision
+Vehicle License Plate Recognition System,Automatic number plate recognition ANPR system using optical character recognition OCR and OpenCV,Computer Vision
+Intrusion Detection System for Networks,Network security framework using machine learning to detect DDoS attacks port scanning and anomalies,Cybersecurity
+Smart Parking Management System,IoT and ultrasonic sensor based smart parking slot reservation and availability monitoring system,IoT
+Blood Bank and Donor Management System,Web application connecting blood banks donors and recipients with real time inventory tracking,Web Development
+Voice Assistant for Desktop and Mobile,Python based desktop voice assistant performing system tasks searches and notes through speech recognition,Artificial Intelligence
+Handwritten Digit and Text Recognition,Deep learning optical character recognition OCR model for transcribing handwritten documents,Machine Learning
+Disaster Management and Alert System,Mobile and web disaster reporting system with emergency SOS geolocation alerts and relief coordination,Mobile Application
+Decentralized Document Verification,Blockchain smart contract platform for authenticating academic certificates and preventing credential fraud,Blockchain
+Mental Health Chatbot and Mood Tracker,Conversational AI assistant tracking mood trends offering cognitive behavioral therapy CBT exercises and crisis resources,Artificial Intelligence
+Air Quality Monitoring and Prediction System,IoT air pollution monitoring station measuring PM2.5 CO2 levels with ML air index forecasting,IoT
+Automated Essay and Code Grading System,NLP and AST evaluation tool for grading student essays and programming assignments with feedback,Artificial Intelligence
+Smart Health Monitoring Band,Wearable IoT device tracking heart rate pulse oxygen body temperature with emergency doctor alert,IoT
+Object Detection for Visually Impaired,Assistive computer vision system detecting obstacles and reading text with audio narration for blind users,Computer Vision
+E-Learning Portal with Course Recommendation,Interactive online learning platform with video lessons quizzes and adaptive course recommendation,Web Development
+Fitness Tracker and Workout Planner App,Mobile application tracking daily workouts calorie burn step counts and generating AI workout plans,Mobile Application
+Supply Chain Provenance System,Blockchain solution for tracking product origin authenticity and logistics across supply chain participants,Blockchain
+Malware Analysis and Detection Tool,Static and dynamic behavioral analysis tool classifying malicious executables using machine learning,Cybersecurity
+Customer Churn Prediction,Predictive analytics machine learning model identifying customers likely to cancel subscription services,Data Science
+Smart Water Leakage and Quality Detection,IoT sensor framework detecting water pipe leakages flow rate anomalies and pH contaminants,IoT
+Food Delivery and Restaurant Management App,Full stack mobile application for ordering food tracking live delivery agent and managing restaurant menus,Mobile Application
+Secure Cloud File Storage with End-to-End Encryption,Cloud file storage system featuring zero knowledge client side encryption and file sharing,Cloud Computing
+Real-Time Chat Application with End-to-End Encryption,WebSockets based messaging application with encrypted messaging file sharing and audio calls,Web Development
+Automated Resume Generator and Portfolio Builder,Web app generating professional ATS friendly resumes and hosting developer portfolio pages,Web Development
+Crime Rate Prediction and Hotspot Mapping,Spatial data analysis and machine learning framework mapping crime clusters and forecasting incident frequency,Data Science
+Fake Product Review Detection System,NLP sentiment analysis and reviewer behavioral scoring tool to identify fraudulent online reviews,Machine Learning
+Autonomous Line Following and Obstacle Avoiding Robot,Arduino robotics platform navigating paths and evading collisions using ultrasonic and IR sensors,IoT
+Patient Electronic Health Record EHR on Blockchain,Decentralized medical records system giving patients control over healthcare provider access,Blockchain
+Multi-Cloud Disaster Recovery and Backup Automation,DevOps and cloud framework orchestrating cross cloud automated backups and failover mechanisms,Cloud Computing
+Cyber Threat Intelligence Dashboard,Security operations center SOC dashboard visualizing live threat feeds attack vectors and vulnerabilities,Cybersecurity
+Plant Watering Automation System,Microcontroller based soil moisture sensing and automated water pump system for indoor gardening,IoT
+College Event and Club Management Portal,Web application for scheduling campus events ticketing club registrations and budget tracking,Web Development
+Movie Box Office Revenue Prediction,Data science regression models predicting movie opening weekend and lifetime revenues from pre release data,Data Science
+Automated Bug Triage and Assignment System,Machine learning system classifying software issue reports and assigning them to appropriate developers,Machine Learning
+Personal Finance and Expense Tracking App,Mobile finance application with receipt scanning budget forecasting and expense categorization,Mobile Application
+Smart Helmet for Accident Detection,IoT motorcycle helmet detecting collisions via accelerometer and sending GPS coordinates to emergency contacts,IoT
+Secure Password Manager with Zero Knowledge Architecture,Client side encrypted password vault with browser extension master password derivation and breach alerts,Cybersecurity
+Containerized Microservices CI/CD Deployment Pipeline,Cloud native infrastructure deploying microservice architecture with Docker Kubernetes and Jenkins,Cloud Computing
+Augmented Reality Interior Design App,AR mobile application allowing users to place and preview 3D furniture models inside real rooms,Mobile Application
+Music Genre Classification and Audio Tagging,Deep learning audio processing model classifying songs into musical genres using spectrograms and CNNs,Machine Learning
+Employee Performance Appraisal System,Web portal for evaluating employee KPIs 360 degree peer reviews and performance analytics,Web Development
+Biometric Fingerprint Door Lock System,Embedded security lock authenticating users via optical fingerprint sensor and keypad fallback,IoT
+News Summarizer and Headline Generator,Transformer based text summarization tool generating concise summaries from long news articles,Natural Language Processing
+Zero Trust Network Access Controller,Network security gateway authenticating identity device posture and continuous authorization,Cybersecurity
+Crowdfunding Platform on Blockchain,Web3 crowdfunding platform using smart contracts to release funds upon milestone completions,Blockchain

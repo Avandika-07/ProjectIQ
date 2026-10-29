@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ProjectIQ - Evaluate Project</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            background: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #a5b4fc;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4338ca;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .page-header h1 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+
+        /* ================= MAIN GRID ================= */
+
+        .evaluation-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+
+        /* ================= FORM CARD ================= */
+
+        .form-card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+
+        .form-card h2 {
+            margin-bottom: 8px;
+        }
+
+        .form-card .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+
+        /* ================= FORM GROUP ================= */
+
+        .form-group {
+            margin-bottom: 23px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            outline: none;
+            transition: 0.2s;
+            background: white;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px #eef2ff;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 6px;
+        }
+
+
+        /* ================= CHARACTER COUNTER ================= */
+
+        .description-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+        }
+
+        #charCount {
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+
+        /* ================= TWO COLUMN INPUT ================= */
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .evaluate-button {
+            width: 100%;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        .evaluate-button:hover {
+            background: #4338ca;
+            transform: translateY(-1px);
+        }
+
+        .evaluate-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* ================= SIDE CARD ================= */
+
+        .side-card {
+            background: #111827;
+            color: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .side-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .side-card > p {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+
+        /* ================= FEATURES ================= */
+
+        .feature {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #312e81;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            flex-shrink: 0;
+        }
+
+        .feature h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #9ca3af;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        /* ================= BOTTOM INFO ================= */
+
+        .info-banner {
+            margin-top: 25px;
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
+            padding: 18px 20px;
+            border-radius: 12px;
+            color: #3730a3;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .evaluation-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .container {
+                width: 94%;
+                margin: 30px auto;
+            }
+
+            .form-card,
+            .side-card {
+                padding: 25px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        ProjectIQ
+    </div>
+
+    <div>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/evaluate">
+            Evaluate
+        </a>
+
+        <a href="/history">
+            History
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= MAIN CONTAINER ================= -->
+
+<div class="container">
+
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div class="badge">
+            AI PROJECT EVALUATION
+        </div>
+
+        <h1>
+            Evaluate Your Project
+        </h1>
+
+        <p>
+            Enter your project details and let ProjectIQ analyze
+            its uniqueness, innovation, feasibility and resume value.
+        </p>
+
+    </div>
+
+
+    <!-- ================= LAYOUT ================= -->
+
+    <div class="evaluation-layout">
+
+
+        <!-- ================= FORM ================= -->
+
+        <div class="form-card">
+
+            <h2>
+                Tell Us About Your Project
+            </h2>
+
+            <p class="subtitle">
+                Provide accurate details for a better evaluation.
+            </p>
+
+
+            <form action="/evaluate" method="POST">
+
+
+                <!-- PROJECT TITLE -->
+
+                <div class="form-group">
+
+                    <label for="title">
+                        Project Title
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Example: AI-Based Smart Waste Management"
+                        required
+                    >
+
+                    <p class="hint">
+                        Give your project a clear and meaningful name.
+                    </p>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Project Description
+                        <span class="required">*</span>
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        placeholder="Explain the problem, proposed solution, main features and how your system works..."
+                        required
+                    ></textarea>
+
+                    <div class="description-footer">
+
+                        <span class="hint">
+                            More details help improve analysis.
+                        </span>
+
+                        <span id="charCount">
+                            0 characters
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DOMAIN + USERS -->
+
+                <div class="two-column">
+
+
+                    <div class="form-group">
+
+                        <label for="domain">
+                            Project Domain
+                            <span class="required">*</span>
+                        </label>
+
+                        <select
+                            id="domain"
+                            name="domain"
+                            required
+                        >
+
+                            <option value="">
+                                Select Domain
+                            </option>
+
+                            <option value="Artificial Intelligence">
+                                Artificial Intelligence
+                            </option>
+
+                            <option value="Machine Learning">
+                                Machine Learning
+                            </option>
+
+                            <option value="Computer Vision">
+                                Computer Vision
+                            </option>
+
+                            <option value="Web Development">
+                                Web Development
+                            </option>
+
+                            <option value="Mobile Application">
+                                Mobile Application
+                            </option>
+
+                            <option value="Cybersecurity">
+                                Cybersecurity
+                            </option>
+
+                            <option value="IoT">
+                                Internet of Things
+                            </option>
+
+                            <option value="Data Science">
+                                Data Science
+                            </option>
+
+                            <option value="Cloud Computing">
+                                Cloud Computing
+                            </option>
+
+                            <option value="Blockchain">
+                                Blockchain
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="users">
+                            Target Users
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="users"
+                            name="users"
+                            placeholder="Example: Students, Hospitals, Farmers"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- TECHNOLOGIES -->
+
+                <div class="form-group">
+
+                    <label for="technologies">
+                        Technologies Used
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="technologies"
+                        name="technologies"
+                        placeholder="Example: Python, Flask, React, MySQL"
+                        required
+                    >
+
+                    <p class="hint">
+                        Separate multiple technologies using commas.
+                    </p>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="evaluate-button"
+                >
+                    Analyze My Project
+                </button>
+
+
+            </form>
+
+
+            <!-- INFO -->
+
+            <div class="info-banner">
+
+                <strong>How it works:</strong>
+
+                ProjectIQ compares your project idea with
+                existing projects and generates AI-based scores
+                and recommendations.
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================= SIDE PANEL ================= -->
+
+        <div class="side-card">
+
+            <h2>
+                What ProjectIQ Analyzes
+            </h2>
+
+            <p>
+                Our evaluation engine examines your project
+                from multiple perspectives.
+            </p>
+
+
+            <!-- FEATURE 1 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    U
+                </div>
+
+                <div>
+
+                    <h3>
+                        Uniqueness
+                    </h3>
+
+                    <p>
+                        Compares your project idea with
+                        existing projects using similarity analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 2 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    I
+                </div>
+
+                <div>
+
+                    <h3>
+                        Innovation
+                    </h3>
+
+                    <p>
+                        Identifies innovative technologies
+                        and intelligent features in your idea.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 3 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    F
+                </div>
+
+                <div>
+
+                    <h3>
+                        Feasibility
+                    </h3>
+
+                    <p>
+                        Estimates how practical your project
+                        is based on technologies and scope.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 4 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    R
+                </div>
+
+                <div>
+
+                    <h3>
+                        Resume Value
+                    </h3>
+
+                    <p>
+                        Estimates how valuable the project
+                        can be for software placements.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 5 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    A
+                </div>
+
+                <div>
+
+                    <h3>
+                        AI Recommendations
+                    </h3>
+
+                    <p>
+                        Suggests features that can improve
+                        your project's originality and impact.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    const description =
+        document.getElementById("description");
+
+    const charCount =
+        document.getElementById("charCount");
+
+
+    description.addEventListener(
+        "input",
+        function () {
+
+            charCount.textContent =
+                this.value.length + " characters";
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
